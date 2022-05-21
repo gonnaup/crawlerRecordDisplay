@@ -19,15 +19,21 @@ interface QuerySelectProps extends SelectProps {
   onSelect: (value: string, option?: any) => any
 }
 
-export interface QueryFormItemProps extends FormItemProps {
-  lable: string
+interface QueryFormItemProps extends FormItemProps {
+  label: string
   name: string
   type: 'input' | 'select'
   selectConfig?: QuerySelectProps
 }
 
-interface QueryHeaderProps {
+export interface QueryHeaderProps {
+  /**
+   * 表单props
+   */
   form: QueryFormProps
+  /**
+   * 查询框props
+   */
   formItems: QueryFormItemProps[]
 }
 
@@ -43,24 +49,26 @@ const QueryHeader = (props: QueryHeaderProps) => {
       {...props.form}
     >
       {props.formItems.map((item: QueryFormItemProps) => {
+        const {type, ...props_} = item
         //输入框
-        if ('input' === item.type) {
+        if ('input' === type) {
+          console.log(props_)
           return (
-            <Form.Item {...item}>
+            <Form.Item key={props_.name} {...props_}  style={{width: 200}}>
               <Input />
             </Form.Item>
           )
         } else {
           //下拉框
-          const { selectConfig, ...formItems } = item
+          const { selectConfig, ...formItems } = props_
           return (
-            <Form.Item {...formItems}>
-              <Select {...selectConfig} />
+            <Form.Item key={props_.name} {...formItems}  style={{width: 200}}>
+              <Select {...selectConfig}/>
             </Form.Item>
           )
         }
       })}
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+      <Form.Item>
         <Button type="primary" htmlType="submit">
           查询
         </Button>
