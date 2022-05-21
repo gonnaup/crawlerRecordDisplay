@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { fetchDoubanNovelPaged } from '../apis/axiosUtil'
+import DoubanNovelTable, {DoubanNovelTableRowData} from '../components/DoubanNovelTable'
 import QueryHeader, { QueryHeaderProps } from '../components/QueryHeader'
 
 type Props = {}
@@ -79,11 +80,11 @@ const DoubanNovel = function (props: Props) {
   return (
     <div style={{ paddingTop: 16 }}>
       <QueryHeader {...headerProps} />
-      <ul style={{ marginTop: 20 }}>
-        {novelList.map((novel) => {
-          return <li key={novel.id}>{novel.title}</li>
-        })}
-      </ul>
+      <DoubanNovelTable datasource={novelList.map(novel => {
+        let rowData = novel as DoubanNovelTableRowData
+        rowData.key = novel.id.toString()
+        return rowData
+      })}/>
     </div>
   )
 }
