@@ -1,10 +1,10 @@
-import React from 'react'
-import { Layout } from 'antd'
-import MenuNavigation from '../components/MenuNavigation'
-import { Outlet } from 'react-router-dom'
-import ContentHeader from '../components/ContentHeader'
+import React from 'react';
+import { Layout } from 'antd';
+import MenuNavigation from '../components/MenuNavigation';
+import { Outlet } from 'react-router-dom';
+import ContentHeader from '../components/ContentHeader';
 
-const { Sider, Content, Footer } = Layout
+const { Sider, Content, Footer } = Layout;
 
 const Main = () => {
   return (
@@ -14,16 +14,16 @@ const Main = () => {
         <MenuNavigation />
       </Sider>
       <Layout>
-        <ContentHeader/>
+        <ContentHeader />
         <Content style={{ margin: '0 16px' }}>
-          <Outlet/>
+          <Outlet />
         </Content>
         <Footer style={{ textAlign: 'center' }}>
           ts-react-antd ©2022 Created by gonnaup
         </Footer>
       </Layout>
     </Layout>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;

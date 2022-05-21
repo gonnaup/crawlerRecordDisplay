@@ -1,10 +1,10 @@
-import React from 'react'
-import { Button, Layout } from 'antd'
-import { HomeOutlined } from '@ant-design/icons'
+import React from 'react';
+import { Button, Layout } from 'antd';
+import { HomeOutlined } from '@ant-design/icons';
 
-type Props = {}
+type Props = {};
 
-const { Header } = Layout
+const { Header } = Layout;
 
 const ContentHeader = (props: Props) => {
   return (
@@ -13,7 +13,7 @@ const ContentHeader = (props: Props) => {
         Home
       </Button>
     </Header>
-  )
-}
+  );
+};
 
-export default ContentHeader
+export default ContentHeader;

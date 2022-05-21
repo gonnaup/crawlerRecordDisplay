@@ -1,17 +1,17 @@
-import type { MenuProps } from 'antd'
-import { Menu } from 'antd'
-import { useNavigate } from 'react-router-dom'
-import { menuItems } from '../configs/menu.config'
+import type { MenuProps } from 'antd';
+import { Menu } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import { menuItems } from '../configs/menu.config';
 
-type ClickHandler = MenuProps['onClick']
+type ClickHandler = MenuProps['onClick'];
 
-const items = menuItems
+const items = menuItems;
 
 const MenuNavigation = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const onClick: ClickHandler = (e) => {
-    navigate(e.key)
-  }
+    navigate(e.key);
+  };
   return (
     <Menu
       onClick={onClick}
@@ -21,7 +21,7 @@ const MenuNavigation = () => {
       mode="inline"
       items={items}
     />
-  )
-}
+  );
+};
 
-export default MenuNavigation
+export default MenuNavigation;

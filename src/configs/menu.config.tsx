@@ -1,7 +1,7 @@
-import { MenuProps } from 'antd'
-import { UserOutlined, BookOutlined, BugOutlined } from '@ant-design/icons'
+import { MenuProps } from 'antd';
+import { UserOutlined, BookOutlined } from '@ant-design/icons';
 
-type MenuItems = Required<MenuProps>['items']
+type MenuItems = Required<MenuProps>['items'];
 export const menuItems: MenuItems = [
   {
     label: '用户管理',
@@ -30,4 +30,4 @@ export const menuItems: MenuItems = [
       }
     ]
   }
-]
+];

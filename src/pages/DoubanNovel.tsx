@@ -1,35 +1,35 @@
-import React, { useEffect, useState } from 'react'
-import { fetchDoubanNovelPaged } from '../apis/axiosUtil'
-import DoubanNovelTable, {DoubanNovelTableRowData} from '../components/DoubanNovelTable'
-import QueryHeader, { QueryHeaderProps } from '../components/QueryHeader'
-
-type Props = {}
+import React, { useEffect, useState } from 'react';
+import { fetchDoubanNovelPaged } from '../apis/axiosUtil';
+import DoubanNovelTable, {
+  DoubanNovelTableRowData
+} from '../components/DoubanNovelTable';
+import QueryHeader, { QueryHeaderProps } from '../components/QueryHeader';
 
 export interface DoubanNovelData {
-  id: number
-  title: string
-  author: string
-  authorUrl: string
-  kind: string
-  words: string
-  status: string
-  tag: string
-  introduce: string
-  novelUrl: string
-  coverUrl: string
+  id: number;
+  title: string;
+  author: string;
+  authorUrl: string;
+  kind: string;
+  words: string;
+  status: string;
+  tag: string;
+  introduce: string;
+  novelUrl: string;
+  coverUrl: string;
 }
 
-type NovelList = DoubanNovelData[]
+type NovelList = DoubanNovelData[];
 
 const queryNovel = (values: any) => {
-  console.log(values)
-}
+  console.log(values);
+};
 
 const headerProps: QueryHeaderProps = {
   form: {
     name: 'doubanNovelQueryForm',
-    labelCol: {span: 8},
-    wrapperCol: {span: 18},
+    labelCol: { span: 8 },
+    wrapperCol: { span: 18 },
     onFinish: queryNovel
   },
   formItems: [
@@ -55,38 +55,38 @@ const headerProps: QueryHeaderProps = {
           },
           {
             label: '幻想',
-            value: '幻想',
+            value: '幻想'
           }
         ],
-        onSelect(value, option?) {
-          
-        },
+        onSelect(value, option?) {},
         placeholder: '小说类型'
       }
     }
   ]
-}
+};
 
-const DoubanNovel = function (props: Props) {
-  const [novelList, setNovelList] = useState<NovelList>([])
+const DoubanNovel = function () {
+  const [novelList, setNovelList] = useState<NovelList>([]);
 
   useEffect(() => {
-    fetchDoubanNovelPaged({ page: 1, pageSize: 15 }).then((response) => {
-      let list: NovelList = response.data.data.content
-      setNovelList(list)
-    })
-  }, [])
+    fetchDoubanNovelPaged({ page: 1, pageSize: 10 }).then((response) => {
+      let list: NovelList = response.data.data.content;
+      setNovelList(list);
+    });
+  }, []);
 
   return (
     <div style={{ paddingTop: 16 }}>
       <QueryHeader {...headerProps} />
-      <DoubanNovelTable datasource={novelList.map(novel => {
-        let rowData = novel as DoubanNovelTableRowData
-        rowData.key = novel.id.toString()
-        return rowData
-      })}/>
+      <DoubanNovelTable
+        datasource={novelList.map((novel) => {
+          let rowData = novel as DoubanNovelTableRowData;
+          rowData.key = novel.id.toString();
+          return rowData;
+        })}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default DoubanNovel
+export default DoubanNovel;

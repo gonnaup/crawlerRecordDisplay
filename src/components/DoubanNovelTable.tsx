@@ -1,28 +1,30 @@
-import { Button, Table } from 'antd'
-import React, { ReactNode } from 'react'
-import { DoubanNovelData } from '../pages/DoubanNovel'
+import { Button, Table } from 'antd';
+import React, { ReactNode } from 'react';
+import { IPaginationConfig } from '../interfaces/page';
+import { DoubanNovelData } from '../pages/DoubanNovel';
 
-export type DoubanNovelTableRowData = DoubanNovelData & { key: string }
+export type DoubanNovelTableRowData = DoubanNovelData & { key: string };
 
 type Props = {
-  datasource: DoubanNovelTableRowData[]
-}
+  datasource: DoubanNovelTableRowData[];
+  pagination?: IPaginationConfig;
+};
 
 type Colums = {
-  title: string
-  key: string
-  dataIndex: string
-  render?: (value: any, record: any, index: number) => ReactNode
-  ellipsis?: boolean
-  width?: string | number
-}[]
+  title: string;
+  key: string;
+  dataIndex: string;
+  render?: (value: any, record: any, index: number) => ReactNode;
+  ellipsis?: boolean;
+  width?: string | number;
+}[];
 
 const colums: Colums = [
   {
     title: 'ID',
     key: 'id',
     dataIndex: 'id',
-    width: '6%'
+    width: '7%'
   },
   {
     title: '书名',
@@ -30,14 +32,14 @@ const colums: Colums = [
     dataIndex: 'title',
     ellipsis: true,
     render: (value, record) => {
-      const { novelUrl } = record
+      const { novelUrl } = record;
       return (
         <div style={{ display: 'inline' }}>
           <Button type="link" target={'_blank'} href={novelUrl}>
             {value}
           </Button>
         </div>
-      )
+      );
     }
   },
   {
@@ -45,14 +47,14 @@ const colums: Colums = [
     key: 'author',
     dataIndex: 'author',
     render: (value, record) => {
-      const { authorUrl } = record
+      const { authorUrl } = record;
       return (
         <>
           <Button type="link" target={'_blank'} href={authorUrl}>
             {value}
           </Button>
         </>
-      )
+      );
     }
   },
   {
@@ -86,7 +88,7 @@ const colums: Colums = [
     ellipsis: true,
     width: '40%'
   }
-]
+];
 
 const DoubanNovelTable = (props: Props) => {
   return (
@@ -94,9 +96,14 @@ const DoubanNovelTable = (props: Props) => {
       columns={colums}
       dataSource={props.datasource}
       size="small"
-      pagination={{ pageSize: 15 }}
+      bordered
+      pagination={{
+        position: ['bottomCenter'],
+        size: 'default',
+        ...props.pagination
+      }}
     />
-  )
-}
+  );
+};
 
-export default DoubanNovelTable
+export default DoubanNovelTable;
