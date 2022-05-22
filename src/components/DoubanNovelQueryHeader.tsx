@@ -62,11 +62,11 @@ const QueryHeader = (props: QueryHeaderProps) => {
             <Select placeholder="状态" allowClear options={status} />
           </Form.Item>
 
-          <Form.Item label="类型" name="kinds" style={{ width: 200 }}>
+          <Form.Item label="类型" name="kind" style={{ width: 200 }}>
             <Select placeholder="类型" allowClear options={kinds} />
           </Form.Item>
 
-          <Form.Item label="标签" name="tags" style={{ width: 200 }}>
+          <Form.Item label="标签" name="tag" style={{ width: 200 }}>
             <Select placeholder="标签" allowClear options={tags} />
           </Form.Item>
 
