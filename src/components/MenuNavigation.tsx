@@ -1,4 +1,4 @@
-import type { MenuProps } from 'antd';
+import { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { menuItems } from '../configs/menu.config';

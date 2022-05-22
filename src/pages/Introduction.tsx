@@ -1,7 +1,6 @@
-import { Breadcrumb } from 'antd'
-import React from 'react'
+import { Breadcrumb } from 'antd';
 
-type Props = {}
+type Props = {};
 
 const Introduction = (props: Props) => {
   return (
@@ -12,7 +11,7 @@ const Introduction = (props: Props) => {
       </Breadcrumb>
       <div style={{ padding: 24 }}>Bill is a cat.</div>
     </>
-  )
-}
+  );
+};
 
-export default Introduction
+export default Introduction;

@@ -1,43 +1,5 @@
-import {
-  Affix,
-  Button,
-  Card,
-  Form,
-  FormItemProps,
-  FormProps,
-  Input,
-  Select,
-  SelectProps
-} from 'antd';
-import React from 'react';
-
-interface QueryFormProps extends FormProps {
-  name: string;
-  onFinish: (values: any) => any;
-}
-
-interface QuerySelectProps extends SelectProps {
-  options: { label: string; value: string }[];
-  onSelect: (value: string, option?: any) => any;
-}
-
-interface QueryFormItemProps extends FormItemProps {
-  label: string;
-  name: string;
-  type: 'input' | 'select';
-  selectConfig?: QuerySelectProps;
-}
-
-export interface QueryHeaderProps {
-  /**
-   * 表单props
-   */
-  form: QueryFormProps;
-  /**
-   * 查询框props
-   */
-  formItems: QueryFormItemProps[];
-}
+import { Affix, Button, Card, Form, Input, Select } from 'antd';
+import { QueryFormItemProps, QueryHeaderProps } from '../interfaces/props';
 
 const QueryHeader = (props: QueryHeaderProps) => {
   const [form] = Form.useForm();

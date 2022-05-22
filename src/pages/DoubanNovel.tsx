@@ -1,23 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchDoubanNovelPaged } from '../apis/axiosUtil';
-import DoubanNovelTable, {
-  DoubanNovelTableRowData
-} from '../components/DoubanNovelTable';
-import QueryHeader, { QueryHeaderProps } from '../components/QueryHeader';
-
-export interface DoubanNovelData {
-  id: number;
-  title: string;
-  author: string;
-  authorUrl: string;
-  kind: string;
-  words: string;
-  status: string;
-  tag: string;
-  introduce: string;
-  novelUrl: string;
-  coverUrl: string;
-}
+import DoubanNovelTable from '../components/DoubanNovelTable';
+import QueryHeader from '../components/QueryHeader';
+import { DoubanNovelData, DoubanNovelTableRowData } from '../interfaces/data';
+import { QueryHeaderProps } from '../interfaces/props';
 
 type NovelList = DoubanNovelData[];
 

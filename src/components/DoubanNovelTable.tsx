@@ -1,9 +1,7 @@
 import { Button, Table } from 'antd';
-import React, { ReactNode } from 'react';
-import { IPaginationConfig } from '../interfaces/page';
-import { DoubanNovelData } from '../pages/DoubanNovel';
-
-export type DoubanNovelTableRowData = DoubanNovelData & { key: string };
+import { ReactNode } from 'react';
+import { DoubanNovelTableRowData } from '../interfaces/data';
+import { IPaginationConfig } from '../interfaces/pagination';
 
 type Props = {
   datasource: DoubanNovelTableRowData[];
@@ -91,6 +89,7 @@ const colums: Colums = [
 ];
 
 const DoubanNovelTable = (props: Props) => {
+  console.log(`render novel table  ${props.datasource.length}`)
   return (
     <Table
       columns={colums}
