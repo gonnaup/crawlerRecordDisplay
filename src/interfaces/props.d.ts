@@ -1,29 +1,11 @@
-import { FormProps, SelectProps, FormItemProps } from 'antd';
-
-interface QueryFormProps extends FormProps {
-    name: string;
-    onFinish: (values: any) => any;
-}
-
-interface QuerySelectProps extends SelectProps {
-    options: { label: string; value: string }[];
-    onSelect: (value: string, option?: any) => any;
-}
-
-export interface QueryFormItemProps extends FormItemProps {
-  label: string;
-  name: string;
-  type: 'input' | 'select';
-  selectConfig?: QuerySelectProps;
-}
-
 export interface QueryHeaderProps {
   /**
-   * 表单props
+   * 表单名称
    */
-  form: QueryFormProps;
+  name: string;
+
   /**
-   * 查询框props
+   * 查询按钮事件
    */
-  formItems: QueryFormItemProps[];
+  onFinish: (values: any) => any;
 }

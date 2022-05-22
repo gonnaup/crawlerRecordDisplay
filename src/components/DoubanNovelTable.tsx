@@ -89,7 +89,6 @@ const colums: Colums = [
 ];
 
 const DoubanNovelTable = (props: Props) => {
-  console.log(`render novel table  ${props.datasource.length}`)
   return (
     <Table
       columns={colums}
