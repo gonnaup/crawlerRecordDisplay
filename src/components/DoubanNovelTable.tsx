@@ -98,6 +98,8 @@ const DoubanNovelTable = (props: Props) => {
       pagination={{
         position: ['bottomCenter'],
         size: 'default',
+        showQuickJumper: true,
+        showTotal: (total) => `总共 [${total}] 条`,
         ...props.pagination
       }}
     />

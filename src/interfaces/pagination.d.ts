@@ -5,6 +5,10 @@ export interface PageParam {
 
 export interface IPaginationConfig {
   /**
+   * 当前页码
+   */
+  current?: number;
+  /**
    * 每页条数
    */
   pageSize?: number;
@@ -21,5 +25,5 @@ export interface IPaginationConfig {
   /**
    * pageSize变化后的回调
    */
-  onShowSizeChange?: (current: number, size: number) => void;
+  onShowSizeChange?: (current: number, pageSize: number) => void;
 }
